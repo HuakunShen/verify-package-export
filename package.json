@@ -1,12 +1,20 @@
 {
   "name": "verify-package-export",
   "description": "Verify package exports",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Huakun Shen",
   "bin": {
     "verify-package-export": "./bin/run.js"
   },
   "bugs": "https://github.com/HuakunShen/verify-package-export/issues",
+  "exports": {
+    ".": {
+      "import": "./dist/lib/index.js",
+      "types": "./dist/lib/index.d.ts",
+      "require": "./dist/lib/index.cjs",
+      "default": "./dist/lib/index.js"
+    }
+  },
   "dependencies": {
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
@@ -28,6 +36,7 @@
     "oclif": "^4",
     "shx": "^0.3.3",
     "ts-node": "^10",
+    "tsup": "^8.3.5",
     "typescript": "^5"
   },
   "engines": {
@@ -62,7 +71,7 @@
   },
   "repository": "https://github.com/HuakunShen/verify-package-export",
   "scripts": {
-    "build": "shx rm -rf dist && tsc -b",
+    "build": "shx rm -rf dist && tsc -b && tsup",
     "lint": "eslint . --ext .ts",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "pnpm run lint",
@@ -71,5 +80,5 @@
     "version": "oclif readme && git add README.md"
   },
   "types": "dist/index.d.ts",
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  "packageManager": "pnpm@9.15.4"
 }

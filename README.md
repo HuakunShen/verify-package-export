@@ -20,7 +20,7 @@ $ npm install -g verify-package-export
 $ verify-package-export COMMAND
 running command...
 $ verify-package-export (--version)
-verify-package-export/0.0.0 darwin-arm64 node-v22.11.0
+verify-package-export/0.0.1 darwin-arm64 node-v22.11.0
 $ verify-package-export --help [COMMAND]
 USAGE
   $ verify-package-export COMMAND
@@ -29,8 +29,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`verify-package-export hello PERSON`](#verify-package-export-hello-person)
-* [`verify-package-export hello world`](#verify-package-export-hello-world)
 * [`verify-package-export help [COMMAND]`](#verify-package-export-help-command)
 * [`verify-package-export plugins`](#verify-package-export-plugins)
 * [`verify-package-export plugins add PLUGIN`](#verify-package-export-plugins-add-plugin)
@@ -42,48 +40,7 @@ USAGE
 * [`verify-package-export plugins uninstall [PLUGIN]`](#verify-package-export-plugins-uninstall-plugin)
 * [`verify-package-export plugins unlink [PLUGIN]`](#verify-package-export-plugins-unlink-plugin)
 * [`verify-package-export plugins update`](#verify-package-export-plugins-update)
-
-## `verify-package-export hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ verify-package-export hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ verify-package-export hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [src/commands/hello/index.ts](https://github.com/HuakunShen/verify-package-export.git/verify-package-export/blob/v0.0.0/src/commands/hello/index.ts)_
-
-## `verify-package-export hello world`
-
-Say hello world
-
-```
-USAGE
-  $ verify-package-export hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ verify-package-export hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-_See code: [src/commands/hello/world.ts](https://github.com/HuakunShen/verify-package-export.git/verify-package-export/blob/v0.0.0/src/commands/hello/world.ts)_
+* [`verify-package-export verify [PKGJSONPATH]`](#verify-package-export-verify-pkgjsonpath)
 
 ## `verify-package-export help [COMMAND]`
 
@@ -394,4 +351,25 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.25/src/commands/plugins/update.ts)_
+
+## `verify-package-export verify [PKGJSONPATH]`
+
+Say hello
+
+```
+USAGE
+  $ verify-package-export verify [PKGJSONPATH]
+
+ARGUMENTS
+  PKGJSONPATH  Path to a package.json file
+
+DESCRIPTION
+  Say hello
+
+EXAMPLES
+  $ verify-package-export verify ./package.json
+  hello friend from oclif! (./src/commands/hello/index.ts)
+```
+
+_See code: [src/commands/verify/index.ts](https://github.com/HuakunShen/verify-package-export/blob/v0.0.1/src/commands/verify/index.ts)_
 <!-- commandsstop -->
