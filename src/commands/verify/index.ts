@@ -1,4 +1,5 @@
-import {Args, Command, Flags} from '@oclif/core'
+import {Args, Command} from '@oclif/core'
+
 import {verifyPackageJsonExport} from '../../lib/index.js'
 
 export default class Hello extends Command {
@@ -18,7 +19,6 @@ hello friend from oclif! (./src/commands/hello/index.ts)
 
   async run(): Promise<void> {
     const {args} = await this.parse(Hello)
-    console.log(args.pkgJsonPath)
     verifyPackageJsonExport(args.pkgJsonPath || 'package.json')
   }
 }
