@@ -1,0 +1,7 @@
+{
+  "name": "@hk/verify-package-export",
+  "description": "Verify package exports",
+  "version": "0.0.1",
+  "license": "MIT",
+  "exports": "./src/lib/index.ts"
+}
