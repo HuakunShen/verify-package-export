@@ -1,6 +1,21 @@
 import fs from 'node:fs'
 import {resolve} from 'node:path'
 
+/**
+ * Verifies that all paths specified in a package.json "exports" field exist
+ * @param pkgJsonDir - Directory containing the package.json file
+ * @param _exports - The exports field value from package.json, can be a string path or nested object
+ * @throws {Error} If any export path does not exist
+ * @example
+ * // Verify exports for current directory
+ * verifyExportsField(".", {
+ *   ".": {
+ *     "import": "./dist/index.js",
+ *     "require": "./dist/index.cjs"
+ *   }
+ * })
+ */
+
 export function verifyExportsField(pkgJsonDir: string, _exports: object | string) {
   switch (typeof _exports) {
     case 'string': {
@@ -42,7 +57,13 @@ export function verifyExportsField(pkgJsonDir: string, _exports: object | string
   }
 }
 
-// Helper function to reduce nesting depth
+/**
+ * Verify nested exports in package.json exports field
+ * Checks that all string paths exist and validates nesting depth
+ * @param pkgJsonDir - Directory containing package.json
+ * @param exports - Nested exports object to verify
+ * @throws {Error} If export path not found or nesting too deep
+ */
 function verifyNestedExports(pkgJsonDir: string, exports: object) {
   for (const val2 of Object.values(exports)) {
     switch (typeof val2) {
@@ -83,11 +104,11 @@ export function verifyPackageJsonExport(pkgJsonPath: string) {
   if (module && !fs.existsSync(resolve(pkgJsonDir, module))) {
     throw new Error(`Module not found: ${module}`)
   }
-  
+
   if (main && !fs.existsSync(resolve(pkgJsonDir, main))) {
     throw new Error(`Main not found: ${main}`)
   }
-  
+
   if (_exports) {
     verifyExportsField(pkgJsonDir, _exports)
   }
