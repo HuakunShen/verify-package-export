@@ -1,7 +1,7 @@
 {
   "name": "verify-package-export",
   "description": "Verify package exports",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Huakun Shen",
   "bin": {
     "verify-package-export": "./bin/run.js"

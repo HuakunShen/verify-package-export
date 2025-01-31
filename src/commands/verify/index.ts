@@ -1,4 +1,6 @@
 import {Args, Command} from '@oclif/core'
+import fs from 'node:fs'
+import {resolve} from 'node:path'
 
 import {verifyPackageJsonExport} from '../../lib/index.js'
 
@@ -19,6 +21,11 @@ hello friend from oclif! (./src/commands/hello/index.ts)
 
   async run(): Promise<void> {
     const {args} = await this.parse(Hello)
+    // if args.pkgJsonPath is dir, append package.json to it
+    if (args.pkgJsonPath && fs.statSync(args.pkgJsonPath).isDirectory()) {
+      args.pkgJsonPath = resolve(args.pkgJsonPath, 'package.json')
+    }
+
     verifyPackageJsonExport(args.pkgJsonPath || 'package.json')
   }
 }

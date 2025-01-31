@@ -20,7 +20,7 @@ $ npm install -g verify-package-export
 $ verify-package-export COMMAND
 running command...
 $ verify-package-export (--version)
-verify-package-export/0.0.1 darwin-arm64 node-v22.11.0
+verify-package-export/0.0.2 darwin-arm64 node-v22.11.0
 $ verify-package-export --help [COMMAND]
 USAGE
   $ verify-package-export COMMAND
@@ -371,5 +371,5 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/verify/index.ts](https://github.com/HuakunShen/verify-package-export/blob/v0.0.1/src/commands/verify/index.ts)_
+_See code: [src/commands/verify/index.ts](https://github.com/HuakunShen/verify-package-export/blob/v0.0.2/src/commands/verify/index.ts)_
 <!-- commandsstop -->
